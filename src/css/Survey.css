@@ -1,0 +1,96 @@
+.survey-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+}
+
+.survey-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.survey-form {
+  width: 100%;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.radio-buttons label {
+  display: flex;
+  align-items: center;
+  background-color: #e3e2e2;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.radio-buttons input[type="radio"] {
+  margin-right: 5px;
+}
+
+.submit-button,
+.next-button,
+.previous-button {
+  display: inline-block;
+  width: 30%;
+  padding: 12px;
+  margin: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button {
+  background-color: #606b71;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.next-button {
+  background-color: #4caf50; /* Next 버튼 색상 */
+}
+
+.next-button:hover {
+  background-color: #45a049;
+}
+
+.previous-button {
+  background-color: #f44336; /* Previous 버튼 색상 */
+}
+
+.previous-button:hover {
+  background-color: #e41e26;
+}
+
+.radio-buttons .positive {
+  background-color: #af1e1e;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-around; /* 간격을 줄이기 위해 space-around 사용 */
+  width: 100%;
+}
+
+.survey-progress {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #323436;
+  text-align: center;
+}
