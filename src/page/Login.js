@@ -43,13 +43,13 @@ const Login = () => {
             navigate("/already-participated");
           } else {
             console.error("Error fetching images", imageError);
-            alert("이미지를 가져오는 데 실패했습니다.");
+            alert("Image Load fail");
           }
         }
       }
     } catch (error) {
       console.error("Error logging in", error);
-      alert("로그인 실패");
+      alert("[Login Fail] Check you Username");
     }
   };
 
