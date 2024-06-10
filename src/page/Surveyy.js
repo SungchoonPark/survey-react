@@ -15,11 +15,20 @@ const Survey = ({
   totalImages,
 }) => {
   const [localRating, setLocalRating] = useState(rating);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     setLocalRating(rating);
   }, [rating]);
+
+  useEffect(() => {
+    setLoading(true);
+  }, [imageSrc]);
+
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
 
   const handleChange = (event) => {
     const newRating = event.target.value;
@@ -52,7 +61,14 @@ const Survey = ({
       <p className="survey-progress">
         {currentIndex + 1} / {totalImages}
       </p>
-      <img src={imageSrc} alt="Survey" className="survey-image" />
+      {loading && <div className="spinner"></div>}
+      <img
+        src={imageSrc}
+        alt="Survey"
+        className="survey-image"
+        onLoad={handleImageLoad}
+        style={{ display: loading ? "none" : "block" }}
+      />
       <form onSubmit={handleSubmit} className="survey-form">
         <div className="radio-buttons">
           <label>
@@ -90,17 +106,17 @@ const Survey = ({
           <button
             type="button"
             onClick={onPrevious}
-            disabled={isFirstImage}
+            disabled={isFirstImage || loading}
             className="previous-button"
           >
             Previous
           </button>
           {isLastImage ? (
-            <button type="submit" className="submit-button">
+            <button type="submit" className="submit-button" disabled={loading}>
               Submit
             </button>
           ) : (
-            <button type="submit" className="next-button">
+            <button type="submit" className="next-button" disabled={loading}>
               Next
             </button>
           )}
