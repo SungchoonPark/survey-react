@@ -18,6 +18,7 @@ const Survey = ({
   const [localRating, setLocalRating] = useState(rating);
   const [loading, setLoading] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,22 +45,27 @@ const Survey = ({
       onRatingChange(localRating);
       if (isLastImage) {
         if (!allSurveysCompleted) {
+          setAlertMessage("Please complete all surveys before submitting.");
           setShowAlert(true);
-          setTimeout(() => setShowAlert(false), 3000); // 3초 후 알림 창 닫기
+          setTimeout(() => setShowAlert(false), 2000);
           return;
         }
         try {
           await onSubmit();
-          navigate("/complete"); // 완료 페이지로 이동
+          navigate("/complete");
         } catch (error) {
           console.error("Error submitting survey", error);
-          alert("Error submitting survey");
+          setAlertMessage("Error submitting survey.");
+          setShowAlert(true);
+          setTimeout(() => setShowAlert(false), 2000);
         }
       } else {
         onNext();
       }
     } else {
-      alert("Please select a rating.");
+      setAlertMessage("Please select a rating.");
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 2000);
     }
   };
 
@@ -129,11 +135,7 @@ const Survey = ({
           )}
         </div>
       </form>
-      {showAlert && (
-        <div className="alert">
-          Please complete all surveys before submitting.
-        </div>
-      )}
+      {showAlert && <div className="alert">{alertMessage}</div>}
     </div>
   );
 };

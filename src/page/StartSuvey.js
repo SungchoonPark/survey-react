@@ -14,10 +14,28 @@ const StartSurvey = () => {
   return (
     <div className="start-survey-container">
       <div className="start-survey-box">
-        <h2>Start Survey</h2>
-        <p>Click the button below to start the survey.</p>
+        <h2>Check Before Starting the Survey</h2>
+        <div className="survey-instructions">
+          <ul>
+            <li>
+              Images may be <span className="highlight">duplicated</span>.
+            </li>
+            <li>
+              You must <span className="highlight">complete all surveys</span>.
+            </li>
+            <li>
+              If you page <span className="highlight">refresh</span> or{" "}
+              <span className="highlight">go back</span>, you will need to start
+              the survey <span className="highlight">again</span>.
+            </li>
+            <li>
+              Please <span className="highlight">wait</span> for the images to
+              load.
+            </li>
+          </ul>
+        </div>
         <button onClick={startSurvey} className="start-survey-button">
-          Start Survey
+          I understand, Start Survey
         </button>
       </div>
     </div>

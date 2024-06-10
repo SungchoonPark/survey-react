@@ -17,12 +17,11 @@
   margin-bottom: 20px;
 }
 
-/* 로딩 스피너 스타일 */
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid #606b71; /* Dark grey */
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #606b71;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -83,7 +82,7 @@
 }
 
 .next-button {
-  background-color: #4caf50; /* Next 버튼 색상 */
+  background-color: #606b71;
 }
 
 .next-button:hover {
@@ -91,7 +90,7 @@
 }
 
 .previous-button {
-  background-color: #f44336; /* Previous 버튼 색상 */
+  background-color: #606b71;
 }
 
 .previous-button:hover {
@@ -104,7 +103,7 @@
 
 .navigation-buttons {
   display: flex;
-  justify-content: space-around; /* 간격을 줄이기 위해 space-around 사용 */
+  justify-content: space-around;
   width: 100%;
 }
 
@@ -115,7 +114,6 @@
   text-align: center;
 }
 
-/* 설문 버튼 컨테이너 스타일 */
 .survey-buttons-container {
   display: flex;
   flex-wrap: wrap;
@@ -136,7 +134,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
   width: 50px;
-  text-align: center; /* 버튼 텍스트 중앙 정렬 */
+  text-align: center;
 }
 
 .survey-buttons-container button.completed {
@@ -148,7 +146,6 @@
   background-color: #9e9e9e;
 }
 
-/* 알림 창 스타일 추가 */
 .alert {
   position: fixed;
   top: 20px;
