@@ -8,21 +8,20 @@ const SurveyContainer = () => {
   const location = useLocation();
   const images = location.state.images;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [surveyData, setSurveyData] = useState([]);
+  const [surveyData, setSurveyData] = useState(Array(images.length).fill(null)); // 각 이미지의 설문 완료 여부를 추적하는 배열
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentImageIndex(pageNumber);
+  };
 
   const handleRatingChange = (rating) => {
     const currentImage = images[currentImageIndex];
     const newSurveyData = [...surveyData];
-    const existingEntryIndex = newSurveyData.findIndex(
-      (entry) => entry.imageId === currentImage.imageId
-    );
-
-    if (existingEntryIndex >= 0) {
-      newSurveyData[existingEntryIndex].rating = rating;
-    } else {
-      newSurveyData.push({ imageId: currentImage.imageId, rating });
-    }
-
+    newSurveyData[currentImageIndex] = {
+      imageId: currentImage.imageId,
+      rating,
+      completed: true,
+    };
     setSurveyData(newSurveyData);
   };
 
@@ -39,6 +38,11 @@ const SurveyContainer = () => {
   };
 
   const handleSubmit = async () => {
+    if (surveyData.some((survey) => survey === null)) {
+      alert("Please complete all surveys before submitting.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "https://cspeak.shop/api/survey",
@@ -50,7 +54,7 @@ const SurveyContainer = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data); // 서버 응답 출력
+      console.log(response.data);
       alert("Survey submit successful");
     } catch (error) {
       console.error("Error submitting survey data", error);
@@ -58,23 +62,35 @@ const SurveyContainer = () => {
     }
   };
 
+  const renderSurveyButtons = () => {
+    return images.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => handlePageChange(index)}
+        className={surveyData[index]?.completed ? "completed" : ""}
+      >
+        {index + 1}
+      </button>
+    ));
+  };
+
   return (
-    <Survey
-      imageSrc={images[currentImageIndex].imageUrl}
-      rating={
-        surveyData.find(
-          (entry) => entry.imageId === images[currentImageIndex].imageId
-        )?.rating || ""
-      }
-      onRatingChange={handleRatingChange}
-      onNext={handleNext}
-      onPrevious={handlePrevious}
-      onSubmit={handleSubmit}
-      isLastImage={currentImageIndex === images.length - 1}
-      isFirstImage={currentImageIndex === 0}
-      currentIndex={currentImageIndex}
-      totalImages={images.length}
-    />
+    <div>
+      <Survey
+        imageSrc={images[currentImageIndex].imageUrl}
+        rating={surveyData[currentImageIndex]?.rating || ""}
+        onRatingChange={handleRatingChange}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+        onSubmit={handleSubmit}
+        isLastImage={currentImageIndex === images.length - 1}
+        isFirstImage={currentImageIndex === 0}
+        currentIndex={currentImageIndex}
+        totalImages={images.length}
+        allSurveysCompleted={!surveyData.some((survey) => survey === null)}
+      />
+      <div className="survey-buttons-container">{renderSurveyButtons()}</div>
+    </div>
   );
 };
 

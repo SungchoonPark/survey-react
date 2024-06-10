@@ -13,9 +13,11 @@ const Survey = ({
   isFirstImage,
   currentIndex,
   totalImages,
+  allSurveysCompleted,
 }) => {
   const [localRating, setLocalRating] = useState(rating);
   const [loading, setLoading] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,6 +43,11 @@ const Survey = ({
     if (localRating) {
       onRatingChange(localRating);
       if (isLastImage) {
+        if (!allSurveysCompleted) {
+          setShowAlert(true);
+          setTimeout(() => setShowAlert(false), 3000); // 3초 후 알림 창 닫기
+          return;
+        }
         try {
           await onSubmit();
           navigate("/complete"); // 완료 페이지로 이동
@@ -79,7 +86,7 @@ const Survey = ({
               checked={localRating === "POSITIVE"}
               onChange={handleChange}
             />
-            Positive
+            <span>Positive</span>
           </label>
           <label>
             <input
@@ -89,7 +96,7 @@ const Survey = ({
               checked={localRating === "NEUTRAL"}
               onChange={handleChange}
             />
-            Neutral
+            <span>Neutral</span>
           </label>
           <label>
             <input
@@ -99,7 +106,7 @@ const Survey = ({
               checked={localRating === "NEGATIVE"}
               onChange={handleChange}
             />
-            Negative
+            <span>Negative</span>
           </label>
         </div>
         <div className="navigation-buttons">
@@ -122,6 +129,11 @@ const Survey = ({
           )}
         </div>
       </form>
+      {showAlert && (
+        <div className="alert">
+          Please complete all surveys before submitting.
+        </div>
+      )}
     </div>
   );
 };
