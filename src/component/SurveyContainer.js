@@ -12,6 +12,7 @@ const SurveyContainer = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentImageIndex(pageNumber);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // 페이지 맨 위로 스크롤
   };
 
   const handleRatingChange = (rating) => {
