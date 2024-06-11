@@ -42,20 +42,32 @@
 
 .radio-buttons {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 30px;
+  gap: 10px;
 }
 
 .radio-buttons label {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #e3e2e2;
-  border-radius: 10px;
-  padding: 5%;
+  border-radius: 8px; /* border-radius 값을 줄입니다 */
+  padding: 18px; /* 패딩 값을 늘려 버튼을 더 통통하게 만듭니다 */
+  box-sizing: border-box;
+  flex: 1 1 calc(33.33% - 20px); /* 3개의 버튼이 1줄에 들어가도록 설정 */
+  max-width: calc(33.33% - 20px);
+  text-align: center;
+  word-break: break-word; /* 긴 단어가 있을 때 줄 바꿈이 되도록 설정 */
 }
 
 .radio-buttons input[type="radio"] {
   margin-right: 5px;
+}
+
+.radio-buttons span {
+  font-size: 16px; /* 폰트 크기를 키워서 버튼이 더 눈에 띄게 만듭니다 */
 }
 
 .submit-button,
@@ -63,7 +75,7 @@
 .previous-button {
   display: inline-block;
   width: 30%;
-  padding: 12px;
+  padding: 16px;
   margin: 5px;
   color: rgb(255, 255, 255);
   border: none;
