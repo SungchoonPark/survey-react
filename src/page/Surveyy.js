@@ -5,6 +5,7 @@ import "../css/Survey.css";
 const Survey = ({
   imageSrc,
   rating,
+  category,
   onRatingChange,
   onNext,
   onPrevious,
@@ -71,10 +72,11 @@ const Survey = ({
 
   return (
     <div className="survey-container">
-      <p className="survey-progress">
-        {currentIndex + 1} / {totalImages}
-      </p>
       {loading && <div className="spinner"></div>}
+      <p className="category-text">
+        <strong>Purchased Product:</strong> <br />
+        <span className="category-highlight">{category}</span>
+      </p>
       <img
         src={imageSrc}
         alt="Survey"
@@ -82,6 +84,10 @@ const Survey = ({
         onLoad={handleImageLoad}
         style={{ display: loading ? "none" : "block" }}
       />
+      <p className="survey-progress">
+        {currentIndex + 1} / {totalImages}
+      </p>
+
       <form onSubmit={handleSubmit} className="survey-form">
         <div className="radio-buttons">
           <label>

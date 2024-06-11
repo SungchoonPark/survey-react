@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../css/Login.css"; // 기존 CSS 파일을 불러옵니다.
+import "../css/Login.css";
 
 const StartSurvey = () => {
   const navigate = useNavigate();
@@ -14,11 +14,22 @@ const StartSurvey = () => {
   return (
     <div className="start-survey-container">
       <div className="start-survey-box">
-        <h2>Check Before Starting the Survey</h2>
+        <h2>
+          Check Before Starting the Survey:
+          <br />
+          Survey Instruction
+        </h2>
         <div className="survey-instructions">
           <ul>
             <li>
-              Images may be <span className="highlight">duplicated</span>.
+              Please choose the <span className="highlight">sentiment</span>{" "}
+              conveyed by the given image. Note that the image is posted by the
+              user in an <span className="highlight">online review</span>.
+            </li>
+            <li>
+              Please take the survey on{" "}
+              <span className="highlight">Chrome</span>, using a{" "}
+              <span className="highlight">desktop</span>.
             </li>
             <li>
               You must <span className="highlight">complete all surveys</span>.

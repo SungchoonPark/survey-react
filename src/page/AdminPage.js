@@ -32,11 +32,16 @@ const AdminPage = () => {
 
   const downloadPDF = () => {
     const doc = new jsPDF();
-    const tableColumn = ["Member Name", "Image Name", "Rating"];
+    const tableColumn = ["Member Name", "Category", "Image Name", "Rating"];
     const tableRows = [];
 
     surveyResults.forEach((result) => {
-      const surveyData = [result.memberName, result.imageName, result.rating];
+      const surveyData = [
+        result.memberName,
+        result.category,
+        result.imageName,
+        result.rating,
+      ];
       tableRows.push(surveyData);
     });
 
@@ -49,10 +54,11 @@ const AdminPage = () => {
   };
 
   const downloadCSV = () => {
-    const headers = ["Member Name,Image Name,Rating\n"];
+    const headers = ["Member Name,Category,Image Name,Rating\n"];
     const rows = surveyResults
       .map(
-        (result) => `${result.memberName},${result.imageName},${result.rating}`
+        (result) =>
+          `${result.memberName},${result.category},${result.imageName},${result.rating}`
       )
       .join("\n");
     const csvData = headers + rows;
@@ -60,7 +66,9 @@ const AdminPage = () => {
   };
 
   const downloadXLSX = () => {
-    const worksheet = XLSX.utils.json_to_sheet(surveyResults);
+    const worksheet = XLSX.utils.json_to_sheet(surveyResults, {
+      header: ["memberName", "category", "imageName", "rating"],
+    });
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Survey Results");
     XLSX.writeFile(workbook, `${selectedMember}_survey_results.xlsx`);
@@ -102,6 +110,7 @@ const AdminPage = () => {
             <thead>
               <tr>
                 <th>Member Name</th>
+                <th>Category</th>
                 <th>Image Name</th>
                 <th>Rating</th>
               </tr>
@@ -110,6 +119,7 @@ const AdminPage = () => {
               {surveyResults.map((result, index) => (
                 <tr key={index}>
                   <td>{result.memberName}</td>
+                  <td>{result.category}</td>
                   <td>{result.imageName}</td>
                   <td>{result.rating}</td>
                 </tr>

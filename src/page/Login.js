@@ -34,7 +34,7 @@ const Login = () => {
           );
           let images = imagesResponse.data.data.imageDtos; // 이미지 데이터 추출
 
-          // images = images.slice(0, 5); // 테스트용으로 첫 5개의 이미지만 사용
+          // images = images.slice(0, 3); // 테스트용으로 첫 5개의 이미지만 사용
           console.log(images);
 
           navigate("/start-survey", { state: { images } });

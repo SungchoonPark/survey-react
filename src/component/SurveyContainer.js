@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Survey from "../page/Surveyy";
+import SurveyLegend from "../component/SurveyLegend";
 import "../css/Survey.css";
 
 const SurveyContainer = () => {
@@ -56,7 +57,6 @@ const SurveyContainer = () => {
         }
       );
       console.log(response.data);
-      alert("Survey submit successful");
     } catch (error) {
       console.error("Error submitting survey data", error);
       alert("Survey submit failed");
@@ -76,21 +76,25 @@ const SurveyContainer = () => {
   };
 
   return (
-    <div>
-      <Survey
-        imageSrc={images[currentImageIndex].imageUrl}
-        rating={surveyData[currentImageIndex]?.rating || ""}
-        onRatingChange={handleRatingChange}
-        onNext={handleNext}
-        onPrevious={handlePrevious}
-        onSubmit={handleSubmit}
-        isLastImage={currentImageIndex === images.length - 1}
-        isFirstImage={currentImageIndex === 0}
-        currentIndex={currentImageIndex}
-        totalImages={images.length}
-        allSurveysCompleted={!surveyData.some((survey) => survey === null)}
-      />
-      <div className="survey-buttons-container">{renderSurveyButtons()}</div>
+    <div className="survey-container-wrapper">
+      <div className="survey-content">
+        <Survey
+          imageSrc={images[currentImageIndex].imageUrl}
+          rating={surveyData[currentImageIndex]?.rating || ""}
+          category={images[currentImageIndex].category || ""}
+          onRatingChange={handleRatingChange}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+          onSubmit={handleSubmit}
+          isLastImage={currentImageIndex === images.length - 1}
+          isFirstImage={currentImageIndex === 0}
+          currentIndex={currentImageIndex}
+          totalImages={images.length}
+          allSurveysCompleted={!surveyData.some((survey) => survey === null)}
+        />
+        <div className="survey-buttons-container">{renderSurveyButtons()}</div>
+      </div>
+      <SurveyLegend />
     </div>
   );
 };
