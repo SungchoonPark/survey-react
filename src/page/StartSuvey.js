@@ -22,9 +22,10 @@ const StartSurvey = () => {
         <div className="survey-instructions">
           <ul>
             <li>
-              Please choose the <span className="highlight">sentiment</span>{" "}
+              Please choose the sentiment{" "}
+              <span className="highlight">regarding the purchased product</span>{" "}
               conveyed by the given image. Note that the image is posted by the
-              user in an <span className="highlight">online review</span>.
+              user in an online review
             </li>
             <li>
               Please take the survey on{" "}
@@ -35,9 +36,10 @@ const StartSurvey = () => {
               You must <span className="highlight">complete all surveys</span>.
             </li>
             <li>
-              If you page <span className="highlight">refresh</span> or{" "}
-              <span className="highlight">go back</span>, you will need to start
-              the survey <span className="highlight">again</span>.
+              If you <span className="highlight">refresh</span> a page or{" "}
+              <span className="highlight">go back</span> to the previous page,
+              you will need to <span className="highlight">restart</span> the
+              survey.
             </li>
             <li>
               Please <span className="highlight">wait</span> for the images to
