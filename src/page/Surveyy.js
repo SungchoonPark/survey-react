@@ -88,6 +88,10 @@ const Survey = ({
         {currentIndex + 1} / {totalImages}
       </p>
 
+      <p className="survey-intro">
+        How do you interpret the sentiment towards the purchased product based
+        on the provided picture?
+      </p>
       <form onSubmit={handleSubmit} className="survey-form">
         <div className="radio-buttons">
           <label>

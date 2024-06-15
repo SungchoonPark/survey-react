@@ -208,3 +208,16 @@
   font-weight: bold;
   color: rgb(225, 91, 91); /* 원하는 색상으로 변경 */
 }
+
+.survey-intro {
+  font-size: 18px; /* 적절한 폰트 크기 */
+  line-height: 1.5; /* 가독성을 위한 행간 */
+  color: #333; /* 텍스트 색상 */
+  background-color: #f9f9f9; /* 배경색 */
+  border: 1px solid #ddd; /* 테두리 */
+  padding: 15px; /* 충분한 여백 */
+  margin-bottom: 20px; /* 버튼과의 간격 */
+  border-radius: 8px; /* 부드러운 모서리 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+}
