@@ -89,7 +89,8 @@ const Survey = ({
       </p>
 
       <p className="survey-intro">
-        제공된 사진을 바탕으로 설문을 진행해주세요.
+        제공된 사진을 바탕으로, 사진에서 리뷰 작성자가 드러내고자 한 만족도
+        (감정)은 무엇일지 설문 응답으로 기록해주세요
       </p>
       <form onSubmit={handleSubmit} className="survey-form">
         <div className="radio-buttons">

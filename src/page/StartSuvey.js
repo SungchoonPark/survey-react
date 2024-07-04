@@ -26,9 +26,8 @@ const StartSurvey = () => {
               <span className="highlight">
                 제품에 대한 만족도 (sentiment)을 골라주세요.{" "}
               </span>{" "}
-              고객이
-              <span className="highlight">온라인 리뷰</span>에 텍스트와 함께
-              올린 사진이란 점을 유념해주세요. (
+              고객이 <span className="highlight">온라인 리뷰</span>에 텍스트와
+              함께 올린 사진이란 점을 유념해주세요. (
               <span className="highlight">즉, 포토 리뷰의 포토입니다</span>
               ).
             </li>
