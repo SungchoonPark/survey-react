@@ -4,33 +4,34 @@ import "../css/SurveyLegend.css";
 const SurveyLegend = () => {
   return (
     <div className="survey-legend">
-      <h2>Product Category Legend</h2>
+      <h2>카테고리 별 상세 예시</h2>
       <div className="legend-columns">
         <ul>
           <li>
             <span className="legend-title">TOP:</span>
             <ul className="sub-category">
-              <li>t-shirts</li>
-              <li>shirts</li>
-              <li>sweatshirts</li>
-              <li>sweaters</li>
-              <li>etc.</li>
+              <li>티셔츠</li>
+              <li>셔츠</li>
+              <li>맨투맨</li>
+              <li>스웨터</li>
+              <li>니트</li>
+              <li>기타</li>
             </ul>
           </li>
           <li>
             <span className="legend-title">LEGGINGS & SOCKS:</span>
             <ul className="sub-category">
-              <li>tights</li>
-              <li>socks</li>
-              <li>etc.</li>
+              <li>레깅스</li>
+              <li>양말</li>
+              <li>기타</li>
             </ul>
           </li>
           <li>
             <span className="legend-title">OPS & SKIRT:</span>
             <ul className="sub-category">
-              <li>dress</li>
-              <li>skirts</li>
-              <li>etc.</li>
+              <li>원피스</li>
+              <li>스커트</li>
+              <li>기타</li>
             </ul>
           </li>
         </ul>
@@ -38,35 +39,35 @@ const SurveyLegend = () => {
           <li>
             <span className="legend-title">OUTER:</span>
             <ul className="sub-category">
-              <li>padded jackets</li>
-              <li>vests</li>
-              <li>jackets</li>
-              <li>etc.</li>
+              <li>패딩 자켓</li>
+              <li>블레이저</li>
+              <li>자켓</li>
+              <li>조끼</li>
+              <li>기타</li>
             </ul>
           </li>
           <li>
             <span className="legend-title">PANTS:</span>
             <ul className="sub-category">
-              <li>baggy pants</li>
-              <li>jeans</li>
-              <li>shorts</li>
-              <li>etc.</li>
+              <li>배기바지</li>
+              <li>반바지</li>
+              <li>청바지</li>
+              <li>기타</li>
             </ul>
           </li>
           <li>
             <span className="legend-title">SHOES & BAG & ACC:</span>
             <ul className="sub-category">
-              <li>shoes</li>
-              <li>tote bags</li>
-              <li>sneakers</li>
-              <li>etc.</li>
+              <li>신발</li>
+              <li>토트백</li>
+              <li>악세사리</li>
+              <li>기타</li>
             </ul>
           </li>
           <li>
             <span className="legend-title">CARDIGAN:</span>
             <ul className="sub-category">
-              <li>cardigans</li>
-              <li>etc.</li>
+              <li>가디건</li>
             </ul>
           </li>
         </ul>

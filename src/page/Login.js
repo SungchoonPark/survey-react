@@ -49,7 +49,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Error logging in", error);
-      alert("[Login Fail] Check you Username");
+      alert("[로그인 실패] 아이디를 확인해주세요");
     }
   };
 
@@ -69,7 +69,7 @@ const Login = () => {
           />
         </div>
         <button type="submit" className="login-button">
-          Login
+          로그인
         </button>
       </form>
     </div>

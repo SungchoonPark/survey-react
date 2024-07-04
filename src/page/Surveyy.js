@@ -46,7 +46,7 @@ const Survey = ({
       onRatingChange(localRating);
       if (isLastImage) {
         if (!allSurveysCompleted) {
-          setAlertMessage("Please complete all surveys before submitting.");
+          setAlertMessage("모든 설문을 완료해주세요!");
           setShowAlert(true);
           setTimeout(() => setShowAlert(false), 2000);
           return;
@@ -64,7 +64,7 @@ const Survey = ({
         onNext();
       }
     } else {
-      setAlertMessage("Please select a rating.");
+      setAlertMessage("설문 항목을 선택해주세요.");
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 2000);
     }
@@ -74,7 +74,7 @@ const Survey = ({
     <div className="survey-container">
       {loading && <div className="spinner"></div>}
       <p className="category-text">
-        <strong>Purchased Product:</strong> <br />
+        <strong>구매한 제품:</strong> <br />
         <span className="category-highlight">{category}</span>
       </p>
       <img
@@ -89,8 +89,7 @@ const Survey = ({
       </p>
 
       <p className="survey-intro">
-        How do you interpret the sentiment towards the purchased product based
-        on the provided picture?
+        제공된 사진을 바탕으로 설문을 진행해주세요.
       </p>
       <form onSubmit={handleSubmit} className="survey-form">
         <div className="radio-buttons">
@@ -102,7 +101,7 @@ const Survey = ({
               checked={localRating === "POSITIVE"}
               onChange={handleChange}
             />
-            <span>Positive</span>
+            <span>긍정</span>
           </label>
           <label>
             <input
@@ -112,7 +111,7 @@ const Survey = ({
               checked={localRating === "NEUTRAL"}
               onChange={handleChange}
             />
-            <span>Neutral</span>
+            <span>중립</span>
           </label>
           <label>
             <input
@@ -122,7 +121,7 @@ const Survey = ({
               checked={localRating === "NEGATIVE"}
               onChange={handleChange}
             />
-            <span>Negative</span>
+            <span>부정</span>
           </label>
         </div>
         <div className="navigation-buttons">
@@ -132,15 +131,15 @@ const Survey = ({
             disabled={isFirstImage || loading}
             className="previous-button"
           >
-            Previous
+            이전
           </button>
           {isLastImage ? (
             <button type="submit" className="submit-button" disabled={loading}>
-              Submit
+              제출
             </button>
           ) : (
             <button type="submit" className="next-button" disabled={loading}>
-              Next
+              다음
             </button>
           )}
         </div>
